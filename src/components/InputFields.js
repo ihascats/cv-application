@@ -10,26 +10,32 @@ class InputFields extends Component {
     };
   }
 
-  displayElement(type) {
-    if (type) {
+  userInputState(text) {
+    this.setState({ userInput: text });
+  }
+
+  typeState() {
+    this.setState({ type: false });
+  }
+
+  render() {
+    if (this.state.type) {
       return (
         <input
-          onKeyDown={(event) => {
+          onInput={(event) => {
             const text = event.target.value;
-            this.setState({ userInput: text });
+            this.userInputState(text);
           }}
-          onSubmit={() => this.setState({ type: false })}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') this.typeState();
+          }}
           type="text"
         ></input>
       );
     }
-    if (!type) {
+    if (!this.state.type) {
       return <h5>{this.state.userInput}</h5>;
     }
-  }
-
-  render() {
-    return <this.displayElement type={this.state.type} />;
   }
 }
 
