@@ -9,11 +9,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <FormContainer />
-      </div>
-    );
+    return <FormContainer />;
   }
 }
 

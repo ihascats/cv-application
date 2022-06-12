@@ -1,0 +1,9 @@
+form {
+  display: grid;
+  gap: 16px;
+  height: fit-content;
+}
+
+h3 {
+  color: rgb(233 197 142);
+}

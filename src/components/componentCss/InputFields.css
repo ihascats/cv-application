@@ -1,0 +1,44 @@
+div {
+  display: grid;
+  width: 384px;
+  gap: 2px;
+}
+
+label {
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: rgb(236, 216, 178);
+}
+
+input,
+button {
+  padding: 4px;
+  font-size: 18px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(204, 204, 204);
+  height: 29px;
+}
+
+p {
+  font-size: 18px;
+  color: rgb(204, 204, 204);
+  padding: 3.5px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+button {
+  font-size: 14px;
+  border-radius: 2px;
+  color: rgb(236, 216, 178);
+  height: 100%;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}

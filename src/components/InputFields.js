@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './componentCss/InputFields.css';
 
 class InputFields extends Component {
   constructor(props) {
@@ -15,26 +16,47 @@ class InputFields extends Component {
   }
 
   typeState() {
-    this.setState({ type: false });
+    this.setState({ type: !this.state.type });
   }
 
   render() {
     if (this.state.type) {
       return (
-        <input
-          onInput={(event) => {
-            const text = event.target.value;
-            this.userInputState(text);
-          }}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') this.typeState();
-          }}
-          type="text"
-        ></input>
+        <div>
+          <label>{this.props.label}</label>
+          <input
+            onInput={(event) => {
+              const text = event.target.value;
+              this.userInputState(text);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' && event.target.value) this.typeState();
+            }}
+            onBlur={(event) => {
+              if (event.target.value) this.typeState();
+            }}
+            type={this.props.typeName}
+            value={this.state.userInput}
+          ></input>
+        </div>
       );
     }
     if (!this.state.type) {
-      return <h5>{this.state.userInput}</h5>;
+      return (
+        <div>
+          <label>{this.props.label}</label>
+          <p>
+            {this.state.userInput}
+            <button
+              onClick={() => {
+                this.typeState();
+              }}
+            >
+              Edit
+            </button>
+          </p>
+        </div>
+      );
     }
   }
 }
